@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# AWS / credentials — NEVER COMMIT THESE
+.aws/
+credentials
+*.pem
+*.key
+.env
+.env.*
+secrets.json
+secrets.yaml
+secrets.yml
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Project outputs
+report.json
+narrative.md
+*.cast
+*.log
+.cursor/
