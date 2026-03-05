@@ -2,6 +2,10 @@
 
 A static analysis tool that scans MCP (Model Context Protocol) server source code for 10 vulnerability classes that traditional SAST tools miss entirely -- plus an agentic investigation layer that uses Claude via AWS Bedrock to reason over findings and produce prioritized attack narratives.
 
+## Demo
+
+[![asciicast](https://asciinema.org/a/Ygpdg9uOC7ZfZsEV.svg)](https://asciinema.org/a/Ygpdg9uOC7ZfZsEV)
+
 ## Detected Vulnerabilities
 
 | # | Rule ID | Severity | Description |
