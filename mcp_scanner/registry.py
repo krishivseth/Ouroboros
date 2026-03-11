@@ -147,7 +147,7 @@ def extract(parsed_files: list[ParsedFile]) -> ServerRegistry:
         registry.servers.extend(_extract_server_instances(pf.tree, pf.file_path))
 
         for node in ast.walk(pf.tree):
-            if not isinstance(node, ast.FunctionDef):
+            if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
                 continue
 
             for decorator in node.decorator_list:

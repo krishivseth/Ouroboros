@@ -43,3 +43,11 @@ narrative.md
 *.cast
 *.log
 .cursor/
+
+# Frontend
+Ouroboros_frontend/node_modules/
+Ouroboros_frontend/dist/
+Ouroboros_frontend/.vite/
+
+# Scan outputs
+mcp_scan_report.json

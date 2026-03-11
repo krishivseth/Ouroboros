@@ -1,0 +1,51 @@
+# Ouroboros Runtime Default Policy
+# Configure enforcement actions per rule and domain
+
+policies:
+  # Core runtime rules
+  RESPONSE_INJECTION:
+    action: block
+    severity_threshold: high
+  EXFILTRATION_SIGNAL:
+    action: block
+    severity_threshold: medium
+  REDIRECT_SPOOFING:
+    action: block
+    severity_threshold: high
+  TLS_FAILURE:
+    action: block
+  MALICIOUS_CONTENT:
+    action: warn
+    severity_threshold: medium
+  HEADER_MISCONFIGURATION:
+    action: log
+
+  # MCP runtime rules
+  SCHEMA_DRIFT:
+    action: warn
+  BEHAVIORAL_INCONSISTENCY:
+    action: warn
+  CROSS_TOOL_EXFILTRATION:
+    action: block
+  MCP_PAYLOAD_INJECTION:
+    action: block
+    severity_threshold: high
+
+# Per-domain overrides
+# allowlist:
+#   - domain: "api.github.com"
+#     rules:
+#       HEADER_MISCONFIGURATION: skip
+#   - domain: "*.internal.company.com"
+#     rules:
+#       TLS_FAILURE: log
+
+# Global settings
+settings:
+  # NOTE: LLM escalation is NOT IMPLEMENTED. This setting is parsed but has no effect.
+  # All detection is currently deterministic (regex-based). Setting this to true will
+  # not enable any LLM-powered analysis. See Known Limitations in README.md.
+  escalation: false
+  cache_ttl_seconds: 300
+  max_escalation_time_ms: 3000
+  max_cache_size: 1024

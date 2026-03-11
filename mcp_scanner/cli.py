@@ -17,6 +17,21 @@ def cli(verbose: bool) -> None:
     logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
 
 
+# Register runtime subcommand group
+try:
+    from ouroboros_runtime.cli import cli as runtime_cli
+    cli.add_command(runtime_cli, name="runtime")
+except ImportError:
+    pass
+
+# Register sandbox subcommand group
+try:
+    from ouroboros_sandbox.cli import cli as sandbox_cli
+    cli.add_command(sandbox_cli, name="sandbox")
+except ImportError:
+    pass
+
+
 @cli.command()
 @click.argument("path", type=click.Path(exists=True))
 @click.option(
